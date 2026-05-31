@@ -324,11 +324,12 @@ const sectionObserver = new IntersectionObserver(
     entries.forEach((entry) => {
       if (entry.isIntersecting) {
         entry.target.classList.add("section-in");
-        sectionObserver.unobserve(entry.target);
+      } else {
+        entry.target.classList.remove("section-in");
       }
     });
   },
-  { threshold: 0.08, rootMargin: "0px 0px -60px 0px" }
+  { threshold: 0.28, rootMargin: "0px" }
 );
 document.querySelectorAll("[data-section]").forEach((el) => sectionObserver.observe(el));
 
