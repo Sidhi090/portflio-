@@ -223,6 +223,13 @@ window.addEventListener("scroll", () => {
 });
 
 const menuToggle = document.querySelector("[data-menu-toggle]");
+const navShell = document.querySelector(".nav-shell");
+const closeMenu = () => {
+  document.body.classList.remove("menu-open");
+  menuToggle?.setAttribute("aria-expanded", "false");
+  menuToggle?.setAttribute("aria-label", "Open menu");
+};
+
 if (menuToggle) {
   menuToggle.addEventListener("click", () => {
     const isOpen = document.body.classList.toggle("menu-open");
@@ -233,9 +240,22 @@ if (menuToggle) {
 
 document.querySelectorAll("[data-nav-links] a").forEach((link) => {
   link.addEventListener("click", () => {
-    document.body.classList.remove("menu-open");
-    menuToggle?.setAttribute("aria-expanded", "false");
+    closeMenu();
   });
+});
+
+window.addEventListener("keydown", (event) => {
+  if (event.key === "Escape") closeMenu();
+});
+
+document.addEventListener("click", (event) => {
+  if (!document.body.classList.contains("menu-open")) return;
+  if (navShell?.contains(event.target)) return;
+  closeMenu();
+});
+
+window.addEventListener("resize", () => {
+  if (window.innerWidth > 980) closeMenu();
 });
 
 renderPublicMedia();
