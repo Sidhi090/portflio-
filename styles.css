@@ -4937,3 +4937,19 @@ body {
     padding-inline: 14px;
   }
 }
+
+/* Hide visible scrollbars while keeping page scroll active. */
+html,
+body,
+body.page-home {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+html::-webkit-scrollbar,
+body::-webkit-scrollbar,
+body.page-home::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+  display: none;
+}
