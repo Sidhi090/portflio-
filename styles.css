@@ -4953,3 +4953,124 @@ body.page-home::-webkit-scrollbar {
   height: 0;
   display: none;
 }
+
+/* Compact mobile/tablet section flow: no forced full-screen gaps. */
+@media (max-width: 980px) {
+  body.page-home {
+    overflow-y: auto;
+    scroll-snap-type: none;
+    scroll-padding-top: 60px;
+  }
+
+  body.page-home .snap-section {
+    height: auto;
+    min-height: 0;
+    scroll-snap-align: none;
+    scroll-snap-stop: normal;
+    overflow: visible;
+  }
+
+  .website-section,
+  .subpage-stage,
+  .collection.website-section,
+  .dress-like.website-section,
+  .reel-section.website-section,
+  .about-section,
+  .contact-section {
+    padding-top: 56px;
+    padding-bottom: 56px;
+  }
+
+  body.page-home .collection.snap-section,
+  body.page-home .dress-like.snap-section,
+  body.page-home .reel-section.snap-section {
+    padding-top: 52px;
+    padding-bottom: 52px;
+  }
+
+  body.page-home .quote-strip.snap-section {
+    padding-top: 48px;
+    padding-bottom: 48px;
+  }
+
+  .section-title,
+  .gal-hero-title {
+    margin-bottom: 16px;
+  }
+
+  .section-desc {
+    margin-bottom: 22px;
+  }
+
+  .summer-cascade,
+  .cinema-wrap,
+  .reel-editorial {
+    margin-top: 24px;
+    margin-bottom: 22px;
+  }
+
+  .dress-like .split-frame,
+  .about-layout,
+  .contact-page {
+    gap: 24px;
+  }
+}
+
+@media (max-width: 560px) {
+  body.page-home {
+    scroll-padding-top: 58px;
+  }
+
+  .website-section,
+  .subpage-stage,
+  .collection.website-section,
+  .dress-like.website-section,
+  .reel-section.website-section,
+  .about-section,
+  .contact-section {
+    padding-top: 42px;
+    padding-bottom: 42px;
+  }
+
+  body.page-home .collection.snap-section,
+  body.page-home .dress-like.snap-section,
+  body.page-home .reel-section.snap-section {
+    padding-top: 38px;
+    padding-bottom: 38px;
+  }
+
+  body.page-home .quote-strip.snap-section {
+    padding-top: 38px;
+    padding-bottom: 38px;
+  }
+
+  .section-inner {
+    width: min(100% - 24px, 1160px);
+  }
+
+  .eyebrow {
+    margin-bottom: 8px;
+  }
+
+  .section-title,
+  .gal-hero-title {
+    margin-bottom: 12px;
+  }
+
+  .section-desc {
+    margin-bottom: 18px;
+  }
+
+  .summer-cascade,
+  .cinema-wrap,
+  .reel-editorial {
+    margin-top: 20px;
+    margin-bottom: 18px;
+  }
+
+  .ghost-button,
+  .dark-button,
+  .light-button {
+    margin-top: 4px;
+  }
+}
