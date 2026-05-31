@@ -4453,6 +4453,179 @@ body.page-home [data-section] {
   }
 }
 
+/* Absolute final scroll engine: desktop + mobile reel-style snap. */
+html.home-scroll {
+  overflow-y: scroll;
+  scroll-snap-type: y mandatory;
+  scroll-behavior: smooth;
+  scroll-padding-top: 0;
+}
+
+html.home-scroll,
+html.home-scroll body {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+html.home-scroll::-webkit-scrollbar,
+html.home-scroll body::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+  display: none;
+}
+
+html.home-scroll body.page-home {
+  overflow-y: visible;
+  scroll-snap-type: none;
+}
+
+html.home-scroll body.page-home .snap-section {
+  min-height: 100svh;
+  height: auto;
+  scroll-snap-align: start;
+  scroll-snap-stop: always;
+  overflow: hidden;
+}
+
+html.home-scroll body.page-home .site-footer.snap-section {
+  min-height: auto;
+  overflow: visible;
+}
+
+html.home-scroll body.page-home .website-section.snap-section,
+html.home-scroll body.page-home .collection.snap-section,
+html.home-scroll body.page-home .dress-like.snap-section,
+html.home-scroll body.page-home .reel-section.snap-section {
+  display: flex;
+  align-items: center;
+}
+
+html.home-scroll body.page-home [data-section] {
+  opacity: 0 !important;
+  transform: translateY(56px) scale(0.985) !important;
+  transition:
+    opacity 760ms cubic-bezier(0.16, 1, 0.3, 1),
+    transform 760ms cubic-bezier(0.16, 1, 0.3, 1) !important;
+  will-change: opacity, transform;
+}
+
+html.home-scroll body.page-home [data-section].section-in {
+  opacity: 1 !important;
+  transform: translateY(0) scale(1) !important;
+}
+
+@media (max-width: 980px) {
+  html.home-scroll body.page-home .website-section.snap-section,
+  html.home-scroll body.page-home .collection.snap-section,
+  html.home-scroll body.page-home .dress-like.snap-section,
+  html.home-scroll body.page-home .reel-section.snap-section {
+    padding-top: clamp(58px, 7svh, 78px);
+    padding-bottom: clamp(38px, 5svh, 58px);
+  }
+
+  html.home-scroll body.page-home .quote-strip.snap-section {
+    min-height: 100svh;
+    padding-top: clamp(58px, 7svh, 78px);
+    padding-bottom: clamp(38px, 5svh, 58px);
+  }
+
+  html.home-scroll body.page-home [data-section] {
+    transform: translateY(42px) scale(0.985) !important;
+    transition-duration: 700ms !important;
+  }
+}
+
+@media (max-width: 560px) {
+  html.home-scroll body.page-home .website-section.snap-section,
+  html.home-scroll body.page-home .collection.snap-section,
+  html.home-scroll body.page-home .dress-like.snap-section,
+  html.home-scroll body.page-home .reel-section.snap-section,
+  html.home-scroll body.page-home .quote-strip.snap-section {
+    padding-top: 56px;
+    padding-bottom: 34px;
+  }
+
+  html.home-scroll body.page-home [data-section] {
+    transform: translateY(34px) scale(0.99) !important;
+    transition-duration: 640ms !important;
+  }
+}
+
+/* Final scroll engine: desktop + mobile use the same reel-style snap. */
+html.home-scroll {
+  overflow-y: scroll;
+  scroll-snap-type: y mandatory;
+  scroll-behavior: smooth;
+  scroll-padding-top: 0;
+}
+
+html.home-scroll,
+html.home-scroll body {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+html.home-scroll::-webkit-scrollbar,
+html.home-scroll body::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+  display: none;
+}
+
+html.home-scroll body.page-home {
+  overflow-y: visible;
+  scroll-snap-type: none;
+}
+
+html.home-scroll body.page-home .snap-section {
+  min-height: 100svh;
+  height: auto;
+  scroll-snap-align: start;
+  scroll-snap-stop: always;
+  overflow: hidden;
+}
+
+html.home-scroll body.page-home .site-footer.snap-section {
+  min-height: auto;
+  overflow: visible;
+}
+
+html.home-scroll body.page-home [data-section] {
+  opacity: 0 !important;
+  transform: translateY(56px) scale(0.985) !important;
+  transition:
+    opacity 760ms cubic-bezier(0.16, 1, 0.3, 1),
+    transform 760ms cubic-bezier(0.16, 1, 0.3, 1) !important;
+  will-change: opacity, transform;
+}
+
+html.home-scroll body.page-home [data-section].section-in {
+  opacity: 1 !important;
+  transform: translateY(0) scale(1) !important;
+}
+
+html.home-scroll body.page-home .website-section.snap-section,
+html.home-scroll body.page-home .collection.snap-section,
+html.home-scroll body.page-home .dress-like.snap-section,
+html.home-scroll body.page-home .reel-section.snap-section {
+  display: flex;
+  align-items: center;
+}
+
+@media (max-width: 980px) {
+  html.home-scroll body.page-home [data-section] {
+    transform: translateY(42px) scale(0.985) !important;
+    transition-duration: 700ms !important;
+  }
+}
+
+@media (max-width: 560px) {
+  html.home-scroll body.page-home [data-section] {
+    transform: translateY(34px) scale(0.99) !important;
+    transition-duration: 640ms !important;
+  }
+}
+
 /* ============================================================
    FINAL MOBILE/TABLET POLISH: hero, menu, and admin panel
    ============================================================ */
@@ -5148,66 +5321,100 @@ body.page-home::-webkit-scrollbar {
   }
 }
 
-/* Final override: reel-style scroll must win after compact spacing rules. */
+/* Absolute final scroll engine: desktop + mobile reel-style snap. */
+html.home-scroll {
+  overflow-y: scroll;
+  scroll-snap-type: y mandatory;
+  scroll-behavior: smooth;
+  scroll-padding-top: 0;
+}
+
+html.home-scroll,
+html.home-scroll body {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+html.home-scroll::-webkit-scrollbar,
+html.home-scroll body::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+  display: none;
+}
+
+html.home-scroll body.page-home {
+  overflow-y: visible;
+  scroll-snap-type: none;
+}
+
+html.home-scroll body.page-home .snap-section {
+  min-height: 100svh;
+  height: auto;
+  scroll-snap-align: start;
+  scroll-snap-stop: always;
+  overflow: hidden;
+}
+
+html.home-scroll body.page-home .site-footer.snap-section {
+  min-height: auto;
+  overflow: visible;
+}
+
+html.home-scroll body.page-home .website-section.snap-section,
+html.home-scroll body.page-home .collection.snap-section,
+html.home-scroll body.page-home .dress-like.snap-section,
+html.home-scroll body.page-home .reel-section.snap-section {
+  display: flex;
+  align-items: center;
+}
+
+html.home-scroll body.page-home [data-section] {
+  opacity: 0 !important;
+  transform: translateY(56px) scale(0.985) !important;
+  transition:
+    opacity 760ms cubic-bezier(0.16, 1, 0.3, 1),
+    transform 760ms cubic-bezier(0.16, 1, 0.3, 1) !important;
+  will-change: opacity, transform;
+}
+
+html.home-scroll body.page-home [data-section].section-in {
+  opacity: 1 !important;
+  transform: translateY(0) scale(1) !important;
+}
+
 @media (max-width: 980px) {
-  body.page-home {
-    overflow-y: scroll;
-    scroll-snap-type: y mandatory;
-    scroll-behavior: smooth;
-    scroll-padding-top: 0;
-  }
-
-  body.page-home .snap-section {
-    min-height: 100svh;
-    height: auto;
-    scroll-snap-align: start;
-    scroll-snap-stop: always;
-    overflow: hidden;
-  }
-
-  body.page-home .website-section.snap-section,
-  body.page-home .collection.snap-section,
-  body.page-home .dress-like.snap-section,
-  body.page-home .reel-section.snap-section {
-    display: flex;
-    align-items: center;
+  html.home-scroll body.page-home .website-section.snap-section,
+  html.home-scroll body.page-home .collection.snap-section,
+  html.home-scroll body.page-home .dress-like.snap-section,
+  html.home-scroll body.page-home .reel-section.snap-section {
     padding-top: clamp(58px, 7svh, 78px);
     padding-bottom: clamp(38px, 5svh, 58px);
   }
 
-  body.page-home .quote-strip.snap-section {
+  html.home-scroll body.page-home .quote-strip.snap-section {
     min-height: 100svh;
     padding-top: clamp(58px, 7svh, 78px);
     padding-bottom: clamp(38px, 5svh, 58px);
   }
 
-  body.page-home [data-section] {
-    opacity: 0;
-    transform: translateY(42px) scale(0.985);
-    transition:
-      opacity 700ms cubic-bezier(0.16, 1, 0.3, 1),
-      transform 700ms cubic-bezier(0.16, 1, 0.3, 1);
-    will-change: opacity, transform;
-  }
-
-  body.page-home [data-section].section-in {
-    opacity: 1;
-    transform: translateY(0) scale(1);
+  html.home-scroll body.page-home [data-section] {
+    transform: translateY(42px) scale(0.985) !important;
+    transition-duration: 700ms !important;
   }
 }
 
 @media (max-width: 560px) {
-  body.page-home .website-section.snap-section,
-  body.page-home .collection.snap-section,
-  body.page-home .dress-like.snap-section,
-  body.page-home .reel-section.snap-section,
-  body.page-home .quote-strip.snap-section {
+  html.home-scroll body.page-home .website-section.snap-section,
+  html.home-scroll body.page-home .collection.snap-section,
+  html.home-scroll body.page-home .dress-like.snap-section,
+  html.home-scroll body.page-home .reel-section.snap-section,
+  html.home-scroll body.page-home .quote-strip.snap-section {
     padding-top: 56px;
     padding-bottom: 34px;
   }
 
-  body.page-home [data-section] {
-    transform: translateY(34px) scale(0.99);
-    transition-duration: 640ms;
+  html.home-scroll body.page-home [data-section] {
+    transform: translateY(34px) scale(0.99) !important;
+    transition-duration: 640ms !important;
   }
 }

@@ -1,5 +1,8 @@
 const loader = document.querySelector("[data-loader]");
 const loaderVideo = document.querySelector(".loader-video");
+if (document.body.classList.contains("page-home")) {
+  document.documentElement.classList.add("home-scroll");
+}
 const ADMIN_PASSWORD = "disha2026";
 const MEDIA_KEY = "dishaPortfolioMediaV3";
 const ADMIN_SESSION_KEY = "dishaAdminAuthed";
